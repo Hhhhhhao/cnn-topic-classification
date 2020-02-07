@@ -1,0 +1,39 @@
+# meta
+exp_name: celeba_stargan_train
+mode: train
+cuda: true
+ngpu: 2
+
+# data
+data_dir: /home/haochen/data/celeba
+image_size: 224
+attrs: [Bangs, Black_Hair, Blond_Hair, Brown_Hair, Gray_Hair, Bushy_Eyebrows, Eyeglasses, Male, Mouth_Slightly_Open, Mustache, Pale_Skin, Young]
+
+# model
+checkpoint: null
+resume_epoch: null
+
+# training
+epochs: 100
+batch_size: 256
+num_workers: 4
+beta1: 0.9
+beta2: 0.999
+lr: 0.001
+wd: 0.0001
+cos_restart_t0: 20000
+cos_restart_t_mult: 2
+monitor: min val_loss
+early_stop: 10
+# steps:
+summary_step: 10
+sample_step: 2000
+save_period: 10
+
+# free adversarial training:
+# FGSM parameters during training
+clip_eps: 4.0
+fgsm_step: 4.0
+
+# Number of repeats for free adversarial training
+n_repeats: 4
